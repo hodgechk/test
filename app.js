@@ -108,7 +108,7 @@ function speakWord(word) {
         window.speechSynthesis.cancel();
         
         const utterance = new SpeechSynthesisUtterance(word);
-        utterance.lang = 'ko-KR'; // 強制設定為韓文發音
+        utterance.lang = 'en-US'; // 強制設定為韓文發音
         utterance.rate = 0.8;     // 語速 0.1 ~ 10
         utterance.pitch = 1.0;    // 音調
         
