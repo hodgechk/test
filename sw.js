@@ -1,5 +1,5 @@
 // Service Worker — 快取所有資源，讓 App 離線也能使用
-const CACHE_NAME = 'flashcard-v1';
+const CACHE_NAME = 'flashcard-v2';
 const ASSETS = [
   './',
   './index.html',
