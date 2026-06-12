@@ -18,6 +18,7 @@ const showAnsBtn    = document.getElementById('show-answer-btn');
 const nextBtn       = document.getElementById('next-btn');
 const finishEl      = document.getElementById('finish-section');
 const backHomeBtn   = document.getElementById('back-home-btn');
+const speakBtn      = document.getElementById('speak-btn');
 
 // ── Bootstrap ────────────────────────────────────────────────────────────────
 function loadQuestions() {
@@ -91,6 +92,7 @@ function renderCard() {
   showAnsBtn.classList.remove('hidden');
   nextBtn.classList.add('hidden');
   finishEl.classList.add('hidden');
+  speakBtn.classList.add('hidden');
 
   // Trigger entrance animation (reflow trick)
   const cardEl = document.getElementById('flashcard');
@@ -99,9 +101,29 @@ function renderCard() {
   cardEl.classList.add('card-enter');
 }
 
+// 發音功能函式
+function speakWord(word) {
+    if ('speechSynthesis' in window) {
+        // 先停止目前正在播放的聲音
+        window.speechSynthesis.cancel();
+        
+        const utterance = new SpeechSynthesisUtterance(word);
+        utterance.lang = 'ko-KR'; // 強制設定為韓文發音
+        utterance.rate = 0.8;     // 語速 0.1 ~ 10
+        utterance.pitch = 1.0;    // 音調
+        
+        // 播放聲音
+        window.speechSynthesis.speak(utterance);
+    } else {
+        alert("你的瀏覽器不支援語音朗讀功能");
+    }
+}
+
 showAnsBtn.addEventListener('click', () => {
   translationEl.classList.remove('hidden');
   showAnsBtn.classList.add('hidden');
+  speakBtn.classList.remove('hidden');
+  speakWord(sessionCards[currentIndex].word);
 
   const isLast = currentIndex === sessionCards.length - 1;
   if (isLast) {
@@ -109,6 +131,10 @@ showAnsBtn.addEventListener('click', () => {
   } else {
     nextBtn.classList.remove('hidden');
   }
+});
+
+speakBtn.addEventListener('click', () => {
+  speakWord(sessionCards[currentIndex].word);
 });
 
 nextBtn.addEventListener('click', () => {
