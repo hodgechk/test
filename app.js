@@ -110,7 +110,7 @@ function speakWord(word) {
         const utterance = new SpeechSynthesisUtterance(word);
         utterance.lang = 'ko-KR'; // 強制設定為韓文發音
         utterance.rate = 0.8;     // 語速 0.1 ~ 10
-        utterance.pitch = 1.6;    // 音調
+        utterance.pitch = 2.0;    // 音調
         
         // 播放聲音
         window.speechSynthesis.speak(utterance);
