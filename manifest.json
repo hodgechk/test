@@ -1,0 +1,24 @@
+{
+  "name": "單字閃卡複習",
+  "short_name": "閃卡複習",
+  "description": "隨機抽題、即時翻譯確認，幫助你高效記憶單字。",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0d0d1a",
+  "theme_color": "#7c6ef7",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icon-512.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
