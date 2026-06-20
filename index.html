@@ -351,6 +351,272 @@
       to   { opacity: 1; transform: translateX(0) scale(1); }
     }
 
+    /* ── Unit Selection ──────────────────────────────────────────────────────── */
+    .unit-selection-container {
+      margin-bottom: 24px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+    }
+    .select-all-row {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .btn-small {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--glass-border);
+      color: var(--text-primary);
+      border-radius: 8px;
+      padding: 4px 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-small:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--accent);
+    }
+    .checkbox-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      max-height: 180px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+    .checkbox-grid::-webkit-scrollbar,
+    .wrong-list-scroll::-webkit-scrollbar {
+      width: 6px;
+    }
+    .checkbox-grid::-webkit-scrollbar-track,
+    .wrong-list-scroll::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 3px;
+    }
+    .checkbox-grid::-webkit-scrollbar-thumb,
+    .wrong-list-scroll::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+    }
+    .checkbox-grid::-webkit-scrollbar-thumb:hover,
+    .wrong-list-scroll::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 8px 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .checkbox-item:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(124, 110, 247, 0.3);
+    }
+    .checkbox-item input[type="checkbox"] {
+      accent-color: var(--accent);
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+    .checkbox-label-text {
+      font-size: 0.85rem;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .loading-text {
+      grid-column: span 2;
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      padding: 20px 0;
+    }
+
+    /* ── POS Tag & Grade Buttons ─────────────────────────────────────────────── */
+    #pos-tag {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent-2);
+      background: rgba(79, 195, 247, 0.1);
+      border: 1px solid rgba(79, 195, 247, 0.25);
+      border-radius: 30px;
+      padding: 4px 12px;
+      margin-top: 4px;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+    .btn-danger {
+      background: linear-gradient(135deg, var(--danger) 0%, #d85243 100%);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(247, 124, 110, 0.2);
+    }
+    .btn-danger:hover {
+      box-shadow: 0 6px 24px rgba(247, 124, 110, 0.35), 0 0 0 1px var(--danger);
+      transform: translateY(-2px);
+    }
+    .btn-success {
+      background: linear-gradient(135deg, var(--success) 0%, #46cf98 100%);
+      color: #0b2d1f;
+      box-shadow: 0 4px 16px rgba(110, 247, 192, 0.2);
+    }
+    .btn-success:hover {
+      box-shadow: 0 6px 24px rgba(110, 247, 192, 0.35), 0 0 0 1px var(--success);
+      transform: translateY(-2px);
+    }
+
+    /* ── Result Screen ────────────────────────────────────────────────────────── */
+    #result-screen {
+      text-align: center;
+      animation: fade-in 0.4s ease;
+    }
+    .result-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin: 24px 0;
+    }
+    .stat-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .score-box {
+      background: radial-gradient(circle at top, rgba(124, 110, 247, 0.15), transparent);
+      border-color: rgba(124, 110, 247, 0.3);
+      padding: 24px;
+    }
+    .score-box .stat-num {
+      font-size: 3.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #fff 30%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .stat-box-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .success-box {
+      border-color: rgba(110, 247, 192, 0.2);
+      background: radial-gradient(circle at top, rgba(110, 247, 192, 0.08), transparent);
+    }
+    .success-box .stat-num {
+      color: var(--success);
+      font-size: 2rem;
+      font-weight: 700;
+    }
+    .danger-box {
+      border-color: rgba(247, 124, 110, 0.2);
+      background: radial-gradient(circle at top, rgba(247, 124, 110, 0.08), transparent);
+    }
+    .danger-box .stat-num {
+      color: var(--danger);
+      font-size: 2rem;
+      font-weight: 700;
+    }
+    .stat-lbl {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-top: 4px;
+      letter-spacing: 0.05em;
+    }
+    .wrong-answers-section {
+      text-align: left;
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      margin-bottom: 24px;
+    }
+    .wrong-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+      border-left: 3px solid var(--danger);
+      padding-left: 8px;
+    }
+    .wrong-list-scroll {
+      max-height: 220px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding-right: 6px;
+    }
+    .wrong-item {
+      display: grid;
+      grid-template-columns: auto auto 1fr;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      font-size: 0.95rem;
+    }
+    .wrong-word {
+      font-weight: 700;
+      color: #fff;
+      font-size: 1.05rem;
+    }
+    .play-btn-small {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+      padding: 0 4px;
+      opacity: 0.7;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .play-btn-small:hover {
+      opacity: 1;
+      transform: scale(1.15);
+    }
+    .wrong-pos {
+      font-size: 0.75rem;
+      color: var(--accent-2);
+      background: rgba(79, 195, 247, 0.1);
+      padding: 2px 8px;
+      border-radius: 20px;
+      justify-self: end;
+      font-weight: 600;
+    }
+    .wrong-trans {
+      grid-column: span 3;
+      font-size: 0.9rem;
+      color: var(--success);
+      border-top: 1px dashed rgba(255, 255, 255, 0.05);
+      padding-top: 6px;
+      margin-top: 2px;
+    }
+    .perfect-msg {
+      text-align: center;
+      font-weight: 600;
+      color: var(--success);
+      padding: 24px 0;
+      font-size: 1.05rem;
+    }
+
     /* ── Responsive tweaks ───────────────────────────────────────────────────── */
     @media (max-width: 420px) {
       .glass-card { padding: 28px 20px; }
@@ -372,20 +638,32 @@
       <h1 class="home-title">單字閃卡複習</h1>
       <p class="home-subtitle">隨機抽題 · 即時翻譯確認 · 高效記憶</p>
 
-      <label class="label" for="count-input">本次出題數量（10 ~ 100）</label>
+      <!-- Unit Selection -->
+      <div class="unit-selection-container">
+        <span class="label">選擇出題單元</span>
+        <div class="select-all-row">
+          <button id="select-all-btn" type="button" class="btn-small">全選</button>
+          <button id="deselect-all-btn" type="button" class="btn-small">全不選</button>
+        </div>
+        <div id="unit-checkboxes" class="checkbox-grid">
+          <div class="loading-text">載入題庫中...</div>
+        </div>
+      </div>
+
+      <label class="label" for="count-input">本次出題數量 (10 ~ 500)</label>
       <input
         id="count-input"
         class="num-input"
         type="number"
         min="10"
-        max="100"
+        max="500"
         value="10"
         aria-label="出題數量"
       />
 
       <p id="error-msg" class="error-msg" hidden aria-live="polite"></p>
 
-      <button id="start-btn" class="btn btn-primary">
+      <button id="start-btn" class="btn btn-primary" disabled>
         <span>開始測驗</span>
         <span aria-hidden="true">→</span>
       </button>
@@ -398,39 +676,71 @@
   <section id="quiz-screen" class="screen hidden">
     <div class="glass-card">
 
-      <!-- Progress -->
-      <div class="progress-bar-wrap" aria-hidden="true">
-        <div id="progress-bar" class="progress-bar-fill" style="width:0%"></div>
-      </div>
-      <p id="progress" class="progress-text" aria-live="polite"></p>
-
-      <!-- Flashcard -->
-      <div id="flashcard" role="region" aria-label="閃卡">
-        <span id="word" aria-label="英文單字"></span>
-        <button id="speak-btn" class="hidden" style="background: none; border: none; font-size: 2rem; cursor: pointer;">🔊</button>
-        <div class="divider" id="card-divider" aria-hidden="true"></div>
-        <span id="translation" class="hidden" aria-label="中文翻譯"></span>
-      </div>
-
-      <!-- Action buttons -->
-      <div class="action-area">
-        <button id="show-answer-btn" class="btn btn-secondary">👁 看答案</button>
-        <button id="next-btn"        class="btn btn-primary  hidden">下一題 →</button>
-
-        <!-- Finish section (shown instead of next-btn on last card) -->
-        <div id="finish-section" class="hidden">
-          <span class="finish-emoji" aria-hidden="true">🎉</span>
-          <p class="finish-title">測驗結束！</p>
-          <p class="finish-sub">你已完成本次所有單字複習</p>
-          <button id="back-home-btn" class="btn btn-ghost">↩ 回到主頁</button>
+      <!-- Quiz Content Wrapper (hidden when finished) -->
+      <div id="quiz-content">
+        <!-- Progress -->
+        <div class="progress-bar-wrap" aria-hidden="true">
+          <div id="progress-bar" class="progress-bar-fill" style="width:0%"></div>
         </div>
+        <p id="progress" class="progress-text" aria-live="polite"></p>
+
+        <!-- Flashcard -->
+        <div id="flashcard" role="region" aria-label="閃卡">
+          <span id="word" aria-label="英文單字"></span>
+          <button id="speak-btn" class="hidden" style="background: none; border: none; font-size: 2rem; cursor: pointer;">🔊</button>
+          <div class="divider" id="card-divider" aria-hidden="true"></div>
+          <span id="pos-tag" class="hidden" aria-label="詞性"></span>
+          <span id="translation" class="hidden" aria-label="中文翻譯"></span>
+        </div>
+
+        <!-- Action buttons -->
+        <div class="action-area">
+          <button id="show-answer-btn" class="btn btn-secondary">👁 看答案</button>
+
+          <!-- Self-grade buttons (shown after clicking show-answer-btn) -->
+          <div id="self-grade-buttons" class="hidden" style="display: flex; gap: 12px; width: 100%;">
+            <button id="grade-wrong-btn" class="btn btn-danger">❌ 忘記了</button>
+            <button id="grade-right-btn" class="btn btn-success">✅ 記住了</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Result Screen (shown when finished) -->
+      <div id="result-screen" class="hidden">
+        <span class="finish-emoji" aria-hidden="true">🎉</span>
+        <p class="finish-title">測驗結束！</p>
+        
+        <div class="result-stats">
+          <div class="stat-box score-box">
+            <span class="stat-num" id="result-score">0</span>
+            <span class="stat-lbl">得分</span>
+          </div>
+          <div class="stat-box-row">
+            <div class="stat-box success-box">
+              <span class="stat-num" id="result-correct">0</span>
+              <span class="stat-lbl">答對</span>
+            </div>
+            <div class="stat-box danger-box">
+              <span class="stat-num" id="result-wrong">0</span>
+              <span class="stat-lbl">答錯</span>
+            </div>
+          </div>
+        </div>
+
+        <div id="wrong-answers-container" class="wrong-answers-section">
+          <h3 class="wrong-title">錯題檢視</h3>
+          <div id="wrong-list" class="wrong-list-scroll">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+        <button id="back-home-btn" class="btn btn-ghost">↩ 回到主頁</button>
       </div>
 
     </div>
   </section>
 
-  <!-- 題庫資料（必須在 app.js 之前載入） -->
-  <script src="questions.js"></script>
+  <!-- 註冊 JavaScript -->
   <script src="app.js"></script>
 
   <!-- 註冊 Service Worker（PWA 離線支援） -->

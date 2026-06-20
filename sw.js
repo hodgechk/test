@@ -1,12 +1,17 @@
 // Service Worker — 快取所有資源，讓 App 離線也能使用
-const CACHE_NAME = 'flashcard-v2';
+const CACHE_NAME = 'flashcard-v4';
 const ASSETS = [
   './',
   './index.html',
   './app.js',
-  './questions.js',
   './manifest.json',
-  './icon-512.png'
+  './icon-512.png',
+  './quwstions/adjective.js',
+  './quwstions/adverb.js',
+  './quwstions/noun.js',
+  './quwstions/noun_2.js',
+  './quwstions/question.js',
+  './quwstions/verb.js'
 ];
 
 // 安裝時快取所有檔案
@@ -27,9 +32,23 @@ self.addEventListener('activate', event => {
   self.clients.claim();
 });
 
-// 攔截網路請求：優先用快取，失敗才走網路
+// 攔截網路請求：優先用快取，失敗則走網路並動態快取新單元
 self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.match(event.request).then(cached => cached || fetch(event.request))
+    caches.match(event.request).then(cached => {
+      if (cached) {
+        return cached;
+      }
+      return fetch(event.request).then(response => {
+        // 動態快取後續可能新增的單元 JS 檔
+        if (response && response.status === 200 && event.request.url.includes('/quwstions/')) {
+          const responseCopy = response.clone();
+          caches.open(CACHE_NAME).then(cache => {
+            cache.put(event.request, responseCopy);
+          });
+        }
+        return response;
+      });
+    })
   );
 });
