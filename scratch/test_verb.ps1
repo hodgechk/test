@@ -1,4 +1,4 @@
-$file = "c:\Users\USER\Downloads\test-main\test-main\quwstions\verb.js"
+$file = "c:\Users\USER\Downloads\test-main\test-main\questions\verb.js"
 $content = [System.IO.File]::ReadAllText($file, [System.Text.Encoding]::UTF8)
 $json = $content -replace '(?s)window\.QUESTIONS\s*=\s*', ''
 $json = $json.Trim()

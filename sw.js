@@ -6,12 +6,12 @@ const ASSETS = [
   './app.js',
   './manifest.json',
   './icon-512.png',
-  './quwstions/adjective.js',
-  './quwstions/adverb.js',
-  './quwstions/noun.js',
-  './quwstions/noun_2.js',
-  './quwstions/question.js',
-  './quwstions/verb.js'
+  './questions/adjective.js',
+  './questions/adverb.js',
+  './questions/noun.js',
+  './questions/noun_2.js',
+  './questions/question.js',
+  './questions/verb.js'
 ];
 
 // 安裝時快取所有檔案
@@ -41,7 +41,7 @@ self.addEventListener('fetch', event => {
       }
       return fetch(event.request).then(response => {
         // 動態快取後續可能新增的單元 JS 檔
-        if (response && response.status === 200 && event.request.url.includes('/quwstions/')) {
+        if (response && response.status === 200 && event.request.url.includes('/questions/')) {
           const responseCopy = response.clone();
           caches.open(CACHE_NAME).then(cache => {
             cache.put(event.request, responseCopy);

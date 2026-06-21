@@ -226,8 +226,7 @@ window.QUESTIONS = [
   {"word": "뵙다", "translation": "拜訪（敬語）"},
   {"word": "뵈다", "translation": "拜見（敬語）"},
   {"word": "만나다", "translation": "拜訪（平語）"},
-  {"word": "보다", "translation": "拜見（平語）"}
-[
+  {"word": "보다", "translation": "拜見（平語）"},
   {"word": "부르다", "translation": "唱、叫"},
   {"word": "부치다", "translation": "寄"},
   {"word": "보내다", "translation": "送、寄"},
